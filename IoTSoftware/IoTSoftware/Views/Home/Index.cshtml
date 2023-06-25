@@ -1,0 +1,70 @@
+﻿<link href="~/Content/style.css" rel="stylesheet" />
+<div ng-app="MyApp" ng-controller="topic_controller" ng-cloak="">
+    <div class="inputs">
+        <input type="text" ng-model="scopeModel.filter.Name" placeholder="Please Enter The Name of University" />
+        <button class="btn-danger" ng-click="scopeModel.change()">
+            Search  <img src="~/fonts/search.svg" />
+        </button>
+
+
+
+        <button class="btn-default" id="Add" ng-click="scopeModel.AddTopic()">
+            <span style="font-size:14px">
+                <img src="~/fonts/person-plus.svg" />  ADD Topic
+            </span>
+        </button>
+    </div>
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="S in scopeModel.setCurrentPage(scopeModel.currentPage)">
+            <tr>
+                <td>{{S.Id}}</td>
+                <td>{{S.Name}}</td>
+                <td style="width:20%">
+                    <button class="btn-success" ng-click="scopeModel.Edit(S)">Edit <img src="~/fonts/pencil-square.svg" /></button>
+                    <button class="btn-danger"><img src="~/fonts/person-x-fill.svg" /> Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ul class="pagination" style="margin:30px ;margin-left:20%">
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isFirst}">
+            <a ng-click="scopeModel.setCurrentPage(pages[0].title)">First</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isFirst}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in scopeModel.pages" ng-class="{active: scopeModel.currentPage == page.title}">
+            <a ng-click="scopeModel.setCurrentPage(page.title)">{{page.title}}</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isLast}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.currentPage + 1)">Next</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isLast}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.pages[scopeModel.pages.length-1].title)">Last</a>
+        </li>
+    </ul>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <script src="~/Services/ApiService/TopicWebApiService.js"></script>
+    <script src="~/BaseController/TopicController.js"></script>
+    <script src="~/BaseController/TopicEditorController.js"></script>
+    <script src="~/Services/OtherService/TopicService.js"></script>
+    <script src="~/Services/OtherService/Modal.js"></script>
+    <script src="~/Services/ApiService/WebApiService.js"></script>
+    <script src="~/Services/OtherService/WaitMultiplePromisesService.js"></script>
+    <script src="~/Services/OtherService/PaginationService.js"></script>
+
+    <script src="~/Scripts/mqttws31.min.js"></script>
+
+}
+

@@ -1,0 +1,22 @@
+﻿<strong style="display:inline">Select Graph Type:</strong>
+<select style="display: inline; margin-left: 2%;width:100%" ng-model="scopeModel.Type" ng-required="true">
+    <option value="">Select Graph</option>
+    <option value=1>Slider</option>
+    <option value=2>Gauge</option>
+</select>
+<br />
+    <span ng-if="scopeModel.Compare('')">Please choice a Graph</span>
+   <div ng-if="scopeModel.Compare('1')">
+       <input type="text" placeholder="please Put On Message" ng-model="scopeModel.onMessage" ng-required="true"/>
+       <input type="text" placeholder="Please Put Off Message" ng-model="scopeModel.offMessage" ng-required="true"/>
+   </div>
+   <div ng-if="scopeModel.Compare('2')">
+       <input type="text" maxlength="4" ng-model="scopeModel.Unit" placeholder="Enter The Unit" />
+       <input type="number" ng-model="scopeModel.Min" placeholder="Enter Min" ng-required="true" />
+       <input type="number" ng-model="scopeModel.Max" placeholder="Enter Min" ng-required="true" />
+   </div>
+<div ng-if="scopeModel.Compare('3')">
+
+
+
+</div>

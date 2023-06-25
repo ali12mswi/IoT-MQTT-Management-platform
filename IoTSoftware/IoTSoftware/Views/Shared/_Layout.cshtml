@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar-inverse {
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+
+            .navbar-inverse .navbar-brand {
+                color: #fff;
+            }
+
+                .navbar-inverse .navbar-brand:hover,
+                .navbar-inverse .navbar-brand:focus {
+                    color: #fff;
+                    background-color: #2e6da4;
+                }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: #fff;
+            }
+
+                .navbar-inverse .navbar-nav > li > a:hover,
+                .navbar-inverse .navbar-nav > li > a:focus {
+                    color: #fff;
+                    background-color: #2e6da4;
+                }
+
+            .navbar-inverse .navbar-nav > .active > a,
+            .navbar-inverse .navbar-nav > .active > a:hover,
+            .navbar-inverse .navbar-nav > .active > a:focus {
+                color: #fff;
+                background-color: #2e6da4;
+            }
+
+            .navbar-inverse .navbar-toggle {
+                border-color: #fff;
+            }
+
+                .navbar-inverse .navbar-toggle:hover,
+                .navbar-inverse .navbar-toggle:focus {
+                    background-color: #2e6da4;
+                }
+
+                .navbar-inverse .navbar-toggle .icon-bar {
+                    background-color: #fff;
+                }
+
+            .navbar-inverse .navbar-collapse,
+            .navbar-inverse .navbar-form {
+                border-color: #101010;
+            }
+
+            .navbar-inverse .navbar-nav > li > a:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("IoTSoftware", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Topics", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Rules", "Rules", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Graphics", "Graphics", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Graph", "Graph", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+
+                    <li><a id="current-time" style="margin-left:10%;width:100%;"></a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    <script>
+function updateCurrentTime() {
+            var date = new Date();
+            var dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][date.getDay()];
+            var dayOfMonth = date.getDate();
+            var month = date.getMonth() + 1; // JavaScript months are zero-indexed
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var currentTime = dayOfWeek + ", " + dayOfMonth + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+            document.getElementById("current-time").innerHTML = currentTime;
+        }
+
+        // Update the time every second
+        setInterval(function () {
+            updateCurrentTime();
+        }, 1000);
+
+    </script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

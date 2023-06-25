@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .label1 {
+            font-weight: bold;
+        }
+
+        .btn-login {
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="loginApp"  ng-controller="loginController">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="center heading">
+                    Sign in
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label class="label1" for="email">Email address</label>
+                        <input ng-model="loginData.userName" id="email" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="label1" for="password">Password</label>
+                        <input ng-model="loginData.password" id="password" type="password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input ng-click="Login()" type="button" value="{{LoginBtnText}}" ng-disabled="isProcessing" class="btn btn-primary btn-login" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="../../Scripts/angular1.4.8.js"></script>
+<script src="../../Scripts/angular-local-storage.min.js"></script>
+<script src="../OtherService/authInterceptorService.js"></script>
+<script src="../../BaseController/login.js"></script>

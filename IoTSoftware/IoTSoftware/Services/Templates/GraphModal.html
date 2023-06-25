@@ -1,0 +1,17 @@
+﻿<form name="myForm">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name">Title:</label>
+            <input type="text" class="form-control" id="name" ng-model="scopeModel.Title" ng-required="true" required placeholder="Enter Title">
+        </div>
+        <topic-selector on-ready="scopeModel.onTopicSelectorReady"></topic-selector>
+        <graph-selector on-ready="scopeModel.onGraphSelectorReady"></graph-selector>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="scopeModel.submitForm()" ng-disabled="myForm.$invalid">OK</button>
+        <button class="btn btn-secondary" type="button" ng-click="scopeModel.cancel()">Cancel</button>
+    </div>
+</form>

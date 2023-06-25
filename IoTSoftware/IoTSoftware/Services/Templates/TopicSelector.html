@@ -1,0 +1,5 @@
+﻿<strong style="display:inline">Select Topic:</strong>
+<select style="display: inline; margin-left: 2%;width:100%" ng-model="scopeModel.Topic" ng-required="true">
+    <option value="">Select Topic</option>
+    <option ng-repeat="T in scopeModel.Topics" value={{T.Name}}>{{T.Name}}</option>
+</select>

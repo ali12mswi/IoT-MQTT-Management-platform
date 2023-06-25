@@ -1,0 +1,16 @@
+﻿<form name="myForm">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" ng-model="data.Name" ng-required="true" required>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="scopeModel.submitForm()" ng-disabled="myForm.$invalid">OK</button>
+        <button class="btn btn-secondary" type="button" ng-click="scopeModel.cancel()">Cancel</button>
+    </div>
+</form>
