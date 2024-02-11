@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "graph";
+}
+<link href="~/Content/SmartHome.css" rel="stylesheet" />
+<style>
+    #Start {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        flex-basis: 33.33%;
+        flex-grow: 1;
+        /* add any additional styling here */
+    }
+</style>
+<div ng-app="MyApp" ng-controller="topic_controller" ng-cloak="">
+    <div id="Start">
+        <span ng-repeat="S in scopeModel.setCurrentPage(scopeModel.currentPage)">
+
+            <gauge detail="S" ng-if="S.Type==2"></gauge>
+            <slider detail="S" ng-if="S.Type==1"></slider>
+        </span>
+
+        <!--<thermometer topic="'temp'" class="item"></thermometer>
+        <time-series></time-series>-->
+    </div>
+    <ul class="pagination" style="margin:30px ;margin-left:20%">
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isFirst}">
+            <a ng-click="scopeModel.setCurrentPage(pages[0].title)">First</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isFirst}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in scopeModel.pages" ng-class="{active: scopeModel.currentPage == page.title}">
+            <a ng-click="scopeModel.setCurrentPage(page.title)">{{page.title}}</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isLast}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.currentPage + 1)">Next</a>
+        </li>
+        <li ng-class="{disabled: scopeModel.pages[scopeModel.currentPage-1].isLast}">
+            <a ng-click="scopeModel.setCurrentPage(scopeModel.pages[scopeModel.pages.length-1].title)">Last</a>
+        </li>
+    </ul>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/plotly-2.20.0.min.js"></script>
+    <script src="~/Services/ApiService/TopicWebApiService.js"></script>
+    <script src="~/Services/ApiService/WebApiService.js"></script>
+    <script src="~/Services/OtherService/WaitMultiplePromisesService.js"></script>
+    <script src="~/Services/ApiService/GraphWebApiService.js"></script>
+    <script src="~/Scripts/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="~/Services/OtherService/Modal.js"></script>
+    <script src="~/Directives/TimeSeries.js"></script>
+    <script src="~/Directives/Thermometer.js"></script>
+    <script src="~/Services/OtherService/TopicService.js"></script>
+    <script src="~/Services/OtherService/GraphService.js"></script>
+    <script src="~/Services/OtherService/PaginationService.js"></script>
+    <script src="~/Services/ApiService/MessageWebApiService.js"></script>
+    <script src="~/BaseController/GraphController.js"></script>
+    <script src="~/Directives/Gauge.js"></script>
+    <script src="~/Directives/Slider.js"></script>
+}

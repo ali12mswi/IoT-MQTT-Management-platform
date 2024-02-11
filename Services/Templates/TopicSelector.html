@@ -1,0 +1,9 @@
+﻿<div style="display: inline-block; margin-bottom: 10px;">
+    <strong>Select Topic:</strong>
+    <select style="margin-left: 2%; width: 60%;" ng-model="scopeModel.Topic" ng-required="true">
+        <option value="">Select Topic</option>
+        <option ng-repeat="T in scopeModel.Topics" value="{{T.Name}}">{{T.Name}}</option>
+    </select>
+</div>
+
+<div ng-if="!scopeModel.Topic" style="color: red;">Please choose a Topic</div>

@@ -1,0 +1,36 @@
+﻿<div style="display: inline-block; margin-bottom: 10px;">
+    <strong>Select Graph Type:</strong>
+    <select style="margin-left: 2%; width: 60%;" ng-model="scopeModel.Type" ng-required="true">
+        <option value="">Select Graph</option>
+        <option value="1">Slider</option>
+        <option value="2">Gauge</option>
+    </select>
+</div>
+
+<div ng-if="scopeModel.Compare('')" style="color: red;">Please choose a Graph Type</div>
+
+<div ng-if="scopeModel.Compare('1')">
+    <div style="margin-bottom: 10px;">
+        <label for="onMessage">Put On Message:</label>
+        <input type="text" id="onMessage" ng-model="scopeModel.onMessage" ng-required="true" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="offMessage">Put Off Message:</label>
+        <input type="text" id="offMessage" ng-model="scopeModel.offMessage" ng-required="true" />
+    </div>
+</div>
+
+<div ng-if="scopeModel.Compare('2')">
+    <div style="margin-bottom: 10px;">
+        <label for="unit">Enter The Unit:</label>
+        <input type="text" id="unit" maxlength="4" ng-model="scopeModel.Unit" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="min">Enter Min:</label>
+        <input type="number" id="min" ng-model="scopeModel.Min" ng-required="true" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="max">Enter Max:</label>
+        <input type="number" id="max" ng-model="scopeModel.Max" ng-required="true" />
+    </div>
+</div>

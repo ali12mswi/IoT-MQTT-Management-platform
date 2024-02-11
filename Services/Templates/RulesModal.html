@@ -1,0 +1,41 @@
+﻿<form name="myForm">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="emailAddress">Email Address:</label>
+            <input type="email" class="form-control" id="emailAddress" ng-model="scopeModel.EmailAddress" ng-required="true" placeholder="Enter Email Address">
+
+            <label for="emailSubject">Email Subject:</label>
+            <input type="text" class="form-control" id="emailSubject" ng-model="scopeModel.EmailSubject">
+            <br />
+            <div>
+            <topic-selector on-ready="scopeModel.onTopicSelectorReady"></topic-selector></div>
+            <br />
+            <label for="operator">Operator:</label>
+            <select class="form-control" id="operator" ng-model="scopeModel.Operator" ng-required="true">
+                <option value="">Select</option>
+                <option value="1">Equal (=)</option>
+                <option value="2">Greater Than (&gt;)</option>
+                <option value="3">Less Than (&lt;)</option>
+                <option value="4">Greater Than or Equal (&gt;=)</option>
+            </select>
+
+            <label for="thresholdValue">Threshold Value:</label>
+            <input type="number" class="form-control" id="thresholdValue" ng-model="scopeModel.ThresholdValue" placeholder="Enter Threshold Value"ng-required="true">
+
+            <label for="emailBody">Email Body:</label>
+            <textarea class="form-control" id="emailBody" ng-model="scopeModel.EmailBody"></textarea>
+        </div>
+
+        <div>
+           
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="scopeModel.submitForm()" ng-disabled="myForm.$invalid">OK</button>
+        <button class="btn btn-secondary" type="button" ng-click="scopeModel.cancel()">Cancel</button>
+    </div>
+</form>

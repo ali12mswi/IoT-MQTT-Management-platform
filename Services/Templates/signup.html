@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<link href="../Content/bootstrap.css" rel="stylesheet" />
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body ng-app="signupApp">
+    <div class="container-fluid" ng-controller="signupController">
+        <div class="paddingT50">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <div class="center">
+                        Signup Tablesure
+                    </div>
+                    <div class="form-main">
+                        <div class="form-group">
+                            <label class="label1" for="email">Email address</label>
+                            <input ng-model="registration.Email" id="email" type="text" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            <label class="label1" for="password">Email address</label>
+                            <input ng-model="registration.Password" id="password" type="password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label1" for="confirmpassword">Email address</label>
+                            <input ng-model="registration.ConfirmPassword" id="confirmpassword" type="password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <div style="padding-top:10px"></div>
+                            <input ng-click="signUp()" type="button" value="Register" />
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+<script src="../Scripts/jquery-3.4.1.js"></script>
+<script src="../Scripts/bootstrap.js"></script>
+
+<script src="../Scripts/angular1.4.8.js"></script>
+<script src="signup.js"></script>

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .label1 {
+            font-weight: bold;
+            display: block;
+        }
+
+        .btn-login {
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="loginApp" ng-controller="loginController">
+    <div class="center">
+        <div class="login-container">
+            <div class="heading">Sign in</div>
+            <div class="form-group">
+                <label class="label1" for="email">Email address</label>
+                <input ng-model="loginData.userName" id="email" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="label1" for="password">Password</label>
+                <input ng-model="loginData.password" id="password" type="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button ng-click="Login()" ng-disabled="isProcessing" class="btn btn-primary btn-login">
+                    {{LoginBtnText}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="../../Scripts/angular1.4.8.js"></script>
+<script src="../../Scripts/angular-local-storage.min.js"></script>
+<script src="../OtherService/authInterceptorService.js"></script>
+<script src="../../BaseController/login.js"></script>

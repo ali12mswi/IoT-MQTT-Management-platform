@@ -1,0 +1,26 @@
+﻿<form name="myForm" ng-submit="scopeModel.submitForm()" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name">Title:</label>
+            <input type="text" class="form-control" id="name" ng-model="scopeModel.Title" ng-required="true" placeholder="Enter Title">
+            <div class="error" ng-show="myForm.name.$dirty && myForm.name.$error.required">Please enter a title.</div>
+        </div>
+        <div class="form-group">
+            <label>Topic:</label>
+            <topic-selector on-ready="scopeModel.onTopicSelectorReady"></topic-selector>
+            <div class="error" ng-show="myForm.topicSelector.$dirty && myForm.topicSelector.$error.required">Please choose a topic.</div>
+        </div>
+        <div class="form-group">
+            <label>Graph Type:</label>
+            <graph-selector on-ready="scopeModel.onGraphSelectorReady"></graph-selector>
+            <div class="error" ng-show="myForm.graphSelector.$dirty && myForm.graphSelector.$error.required">Please choose a graph type.</div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-disabled="myForm.$invalid">OK</button>
+        <button class="btn btn-secondary" type="button" ng-click="scopeModel.cancel()">Cancel</button>
+    </div>
+</form>
