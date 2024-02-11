@@ -1,4 +1,4 @@
-![image](https://github.com/ali12mswi/IoT-MQTT-Management-platform/assets/114986996/cb08431f-61b9-408f-8e1d-0e67c99a4f4f)# IoT-MQTT-Management-platform
+# IoT-MQTT-Management-platform
 this Project is about to build a complete IoT Platform as web app from scratch
 1.This Project Include Rule Engine:
 ![Rule](https://github.com/ali12mswi/IoT-MQTT-Management-platform/assets/114986996/14673251-e3ba-494b-8577-2e8cc0c63197)
